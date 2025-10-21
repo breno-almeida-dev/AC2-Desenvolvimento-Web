@@ -1,0 +1,30 @@
+<h3>Listar Tarefas</h3>
+<a class="btn btn-outline-secondary " routerLink="/cadastrar-tarefas">Ir para Cadastro de Tarefas</a>
+@if (tarefas.length === 0) {
+  <p class="text-muted">Nenhuma tarefa cadastrada.</p>
+} @else {
+  <ul class="list-group" style="max-width:620px">
+    @for (l of tarefas; track l.id) {
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ l.problema }}</strong>
+          <small class="text-black d-block">
+            {{ l.tecnico }} — {{ l.data }} @if (l.cliente) { • {{ l.cliente }} }
+          </small>
+        </div>
+        
+        <div>
+          <p>Status: {{ l.concluida ? 'Concluída' : 'Em andamento' }}</p>
+        </div>
+
+        <button class="btn btn-outline-danger btn-sm" (click)="remover(l.id)">Remover Tarefa</button>
+          <div class="btn-group">
+            @if (!l.concluida) {
+              <button class="btn btn-sm btn-outline-success" (click)="concluir(l.id)">Concluir</button>
+            } 
+          </div>
+      </li>
+    }
+  </ul>
+  
+}

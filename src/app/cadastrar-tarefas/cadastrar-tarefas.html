@@ -1,0 +1,12 @@
+<h3 class="d-grid justify-content-center">Cadastrar Tarefa - ConsertaTECH</h3>
+
+<form (ngSubmit)="salvar()" class="formulario d-grid justify-content-center gap-2 ">
+  <input class="form-control" [(ngModel)]="problema" name="problema" placeholder="Digite o Problema" required>
+  <input class="form-control" [(ngModel)]="data"     name="data"     placeholder="DD/MM/AAAA" type="date"  required>
+  <input class="form-control" [(ngModel)]="tecnico"  name="tecnico"  placeholder="Quem te Atendeu?" required>
+  <input class="form-control" [(ngModel)]="cliente"  name="Cliente"  placeholder="Qual é o seu nome?" required>
+  <button class="btn btn-success" type="submit">Salvar</button>
+
+  <a class="btn btn-outline-secondary" routerLink="/listar-tarefas">Ir para a lista</a>
+
+</form>
